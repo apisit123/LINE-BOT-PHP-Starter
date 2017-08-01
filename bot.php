@@ -19,9 +19,9 @@ $json = file_get_contents('https://api.mlab.com/api/1/databases/tstdb/collection
 $data = json_decode($json);
 $isData=sizeof($data);
 
-if (strpos($_msg, 'สอน') !== false) {
-  if (strpos($_msg, 'สอน') !== false) {
-    $x_tra = str_replace("สอน","", $_msg);
+if (strpos($_msg, 'สอนบอท') !== false) {
+  if (strpos($_msg, 'สอนบอท') !== false) {
+    $x_tra = str_replace("สอนบอท","", $_msg);
     $pieces = explode("|", $x_tra);
     $_question=str_replace("[","",$pieces[0]);
     $_answer=str_replace("]","",$pieces[1]);
@@ -58,7 +58,7 @@ if (strpos($_msg, 'สอน') !== false) {
     $arrPostData = array();
     $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
     $arrPostData['messages'][0]['type'] = "text";
-    $arrPostData['messages'][0]['text'] = 'ครับ คุณสามารถสอนให้ฉลาดได้เพียงพิมพ์: สอนเ[คำถาม|คำตอบ]';
+    $arrPostData['messages'][0]['text'] = 'ครับ คุณสามารถสอนให้ฉลาดได้เพียงพิมพ์: สอนบอท[คำถาม|คำตอบ]';
   }
 }
 
