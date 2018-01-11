@@ -19,8 +19,6 @@ $json = file_get_contents('https://api.mlab.com/api/1/databases/tstdb/collection
 $data = json_decode($json);
 $isData=sizeof($data);
 
-$_no = 1;
-
 if (strpos($_msg, 'Order') !== false) {
   if (strpos($_msg, 'Order') !== false) {
     $x_tra = str_replace("Order","", $_msg);
@@ -30,8 +28,6 @@ if (strpos($_msg, 'Order') !== false) {
     //Post New Data
     $newData = json_encode(
       array(
-       'No' => $_no,
-        'UserId' => $_uid,
         'Coffee' => $_coffee,
         'Number'=> $_bumber
       )
@@ -59,14 +55,7 @@ if (strpos($_msg, 'Order') !== false) {
     $arrPostData['messages'][0]['type'] = "text";
     $arrPostData['messages'][0]['text'] = $rec->answer;
    }
-  }/*else{
-    $arrPostData = array();
-    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-	$arrPostData['messages'][0]['type'] = "text";
-    $arrPostData['messages'][0]['text'] = 'งง?';
-    $arrPostData['messages'][1]['type'] = "text";
-    $arrPostData['messages'][1]['text'] = 'ครับ คุณสามารถสอนให้ฉลาดได้เพียงพิมพ์: สอนบอท[คำถาม|คำตอบ]';
-  }*/
+  }
 }
 
 
